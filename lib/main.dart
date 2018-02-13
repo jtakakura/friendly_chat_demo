@@ -28,6 +28,7 @@ class ChatScreenState extends State<ChatScreen> {
       appBar: new AppBar(
         title: new Text("Friendly Chat")
       ),
+      body: _buildTextComposer(),
     );
   }
 
