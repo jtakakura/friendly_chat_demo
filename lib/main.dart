@@ -49,6 +49,14 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     );
   }
 
+  @override
+  void dispose() {
+    for (ChatMessage message in _messages) {
+      message.animationController.dispose();
+    }
+    super.dispose();
+  }
+
   Widget _buildTextComposer() {
     return new Container(
       margin: const EdgeInsets.symmetric(horizontal: 8.0),
