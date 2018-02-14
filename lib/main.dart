@@ -20,6 +20,7 @@ class ChatScreen extends StatefulWidget {
 }
 
 class ChatScreenState extends State<ChatScreen> {
+  final List<ChatMessage> _messages = <ChatMessage>[];
   final TextEditingController _textController = new TextEditingController();
 
   @override
@@ -59,8 +60,14 @@ class ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  void _handleSubmitted(String value) {
+  void _handleSubmitted(String text) {
     _textController.clear();
+    ChatMessage message = new ChatMessage(
+      text: text,
+    );
+    setState(() {
+      _messages.insert(0, message);
+    });
   }
 }
 
